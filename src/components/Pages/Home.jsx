@@ -1,13 +1,20 @@
-import React from 'react';
+import Banner from '../Home/Banner';
+import Filter from '../../components/Home/Filter';
+import MoviesList from '../../Movies/MoviesList';
 function Home() {
-  const [count, setCount] = React.useState(0);
-  console.log(count);
-
   return (
     <>
-      <p className="number-test">{count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <Banner />
+      <div className="container">
+        <Filter />
+        <MoviesList />
+
+        <div className="movies__scroll">
+          <button>
+            <i className="fa-solid fa-arrow-down"></i>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,5 +1,5 @@
-import star from '../assets/icons/star.png';
-import ImageFılm from '../assets/ImageFılm.jpg';
+import star from '../../assets/icons/star.png';
+import ImageFılm from '../../assets/ImageFılm.jpg';
 function MoviesCard(props) {
   console.log(props);
   return (

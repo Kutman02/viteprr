@@ -1,21 +1,22 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/icons/icon.png';
 import heart from '../../assets/icons/heart.png';
 export default function Header() {
   return (
     <header>
-      <a className="header__logo-flex" href="./index.html">
+      <Link className="header__logo-flex" to="/">
         <img src={logo} alt="logo"></img>
         <div className="header__logo-flex_sitename">
           <p>REACT</p>
           <p>CINEMA</p>
         </div>
-      </a>
+      </Link>
       <ul className="header__navbar-flex">
-        <a href="./index.html">Home</a>
-        <a href="./favorites.html">Favorites</a>
-        <a href="#categoryes">Movies</a>
-        <a href="#categoryes">FAQ</a>
-        <a href="#categoryes">Help</a>
+        <Link to="/">Home</Link>
+        <Link to="/favorites">Favorites</Link>
+        <Link to="/movie">Movies</Link>
+        <Link to="#categoryes">FAQ</Link>
+        <Link to="#categoryes">Help</Link>
       </ul>
       <div className="header__auth-flex">
         <div className="favorites__movies">

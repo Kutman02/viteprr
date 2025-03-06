@@ -7,10 +7,13 @@ import Movie from './Pages/Movie';
 import Favorites from './Pages/Favorites';
 import Error from './Pages/404';
 import { createContext, useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 export const Films = createContext();
 function App() {
-  const [value, changeValue] = useState(0);
+  const [count, changecount] = useState(0);
+  const [value, changeValue] = useState([]);
 
   useEffect(() => {
     async function FetchFilms() {
@@ -32,14 +35,14 @@ function App() {
     <>
       <BrowserRouter>
         <Header />|
-        <Films.Provider value={value}>
+        <Provider store={store}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/movie" element={<Movie />} />
             <Route path="*" element={<Error />} />
           </Routes>
-        </Films.Provider>
+        </Provider>
         <Footer />
       </BrowserRouter>
     </>

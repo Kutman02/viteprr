@@ -34,7 +34,7 @@ const moviesSlice = createSlice({
         state.status = 'fullfilled';
       })
       .addCase(fetchMovies.rejected, (state, action) => {
-        state.status = 'error';
+        state.status = 'loading';
         state.errors = action.error.message;
         console.log(action.error.message);
       });

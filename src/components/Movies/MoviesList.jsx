@@ -1,19 +1,24 @@
-//import { useContext } from 'react';
-//import MoviesCard from './MoviesCard';
-//import { Films } from '../../App';
-import { useDispatch } from 'react-redux';
-import { test } from '../../Redux/slices/moviesSlice';
+import MoviesCard from './MoviesCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchMovies } from '../../Redux/slices/moviesSlice';
 
 function MoviesList() {
   const dispatch = useDispatch();
-  //const films = useContext(Films);
+
+  const { films } = useSelector((store) => {
+    return store.movies;
+  });
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
 
   return (
     <div id="movies" className="movies anchor">
-      <button onClick={() => dispatch(test('hellooo'))}></button>
-      {/*{films.map((value, index) => (
+      {films.map((value, index) => (
         <MoviesCard key={index} {...value} />
-      ))}*/}
+      ))}
     </div>
   );
 }

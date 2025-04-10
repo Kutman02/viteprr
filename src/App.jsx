@@ -11,22 +11,6 @@ import { Provider } from 'react-redux';
 import store from './Redux/store';
 
 function App() {
-  //useEffect(() => {
-  //  async function FetchFilms() {
-  //    await fetch('https://67c56962c4649b9551b69643.mockapi.io/ReactCinema')
-  //      .then((data) => {
-  //        return data.json();
-  //      })
-  //      .then((data) => {
-  //        changeValue(data);
-  //      })
-  //      .catch((error) => {
-  //        console.error(error);
-  //      });
-  //  }
-  //  FetchFilms();
-  //}, []);
-
   return (
     <>
       <BrowserRouter>

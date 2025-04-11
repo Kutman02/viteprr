@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 import star from '../../assets/icons/star.png';
-//import ImageFılm from '../../assets/ImageFılm.jpg';
 function MoviesCard(props) {
-  console.log(props);
   return (
-    <Link className="movies__card" to="/movie">
+    <Link className="movies__card" to={`/movie/${props.id}`}>
       <div className="movies__card-rating">
         <img src={star} alt="" />
         <img src={star} alt="" />

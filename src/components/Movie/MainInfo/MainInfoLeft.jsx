@@ -1,6 +1,17 @@
 import Rating from '../Rating';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { use } from 'react';
 
 function MainInfoLeft() {
+
+  const id = useParams();
+
+  const dispatch = useDispatch();
+const { searchFilm } useSelector = (store => store.movies);
+
+  searchFilmInState(a);
+
   return (
     <div className="main__info-left">
       <div className="main__info-left-title">

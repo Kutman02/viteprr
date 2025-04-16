@@ -4,6 +4,8 @@ function MainInfoLeft(props) {
   const dataFilm = props.filmInfo.film;
   return (
     <div className="main__info-left">
+      <button className="main__info-left-favorite">Favirite</button>
+      <button className="main__info-left-favorite">Remove Favirite</button>
       <div className="main__info-left-title">
         <p>{dataFilm.title}</p>
         <Rating />

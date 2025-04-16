@@ -1,17 +1,8 @@
 function Error() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        textAlign: 'center',
-        color: 'white',
-      }}>
-      <h1 style={{ fontSize: '6rem', margin: '0' }}>404</h1>
-      <p style={{ fontSize: '1.5rem' }}>Страница не найдена</p>
+    <div className="error-page">
+      <h1 className="error-page__title">404</h1>
+      <p className="error-page__subtitle">Страница не найдена</p>
     </div>
   );
 }

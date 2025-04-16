@@ -43,7 +43,7 @@ const moviesSlice = createSlice({
       const { id } = action.payload;
       const searchFilm = state.films.find((film) => film.id === id);
       state.searchFilm.film = searchFilm;
-      state.searchFilm.status = 'fullfilled';
+      state.searchFilm.status = 'fulfilled';
     },
   },
   extraReducers: (builder) => {
@@ -53,7 +53,7 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.films = action.payload;
-        state.status = 'fullfilled';
+        state.status = 'fulfilled';
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = 'loading';

@@ -1,10 +1,18 @@
+import { useDispatch } from 'react-redux';
 import Rating from '../Rating';
+import { addFavoritesMovie } from '../../../Redux/slices/favoritesSlice';
 
 function MainInfoLeft(props) {
   const dataFilm = props.filmInfo.film;
+
+  const dispatch = useDispatch();
   return (
     <div className="main__info-left">
-      <button className="main__info-left-favorite">Favirite</button>
+      <button
+        className="main__info-left-favorite"
+        onClick={() => dispatch(addFavoritesMovie(dataFilm))}>
+        Favirite
+      </button>
       <button className="main__info-left-favorite">Remove Favirite</button>
       <div className="main__info-left-title">
         <p>{dataFilm.title}</p>

@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-function loadFaviritesMovies() {
+
+function loadFavoritesMovies() {
   const dataLocal = localStorage.getItem('favoritesMovies');
   const parseData = dataLocal ? JSON.parse(dataLocal) : [];
   return parseData;
 }
 
 const initialState = {
-  favoritesMovies: loadFaviritesMovies(),
+  favoritesMovies: loadFavoritesMovies(),
   status: 'loading',
 };
 
@@ -16,15 +17,14 @@ const favoritesSlice = createSlice({
   reducers: {
     addFavoritesMovie: (state, action) => {
       const dataFilm = action.payload;
-      const isAlreadyInFavorite = state.favoritesMovies.some(movie => movie.id === dataFilm.id);
+      const isAlreadyFavorite = state.favoritesMovies.some(movie => movie.id === dataFilm.id);
+      console.log('isAlreadyInFavorites');
+      console.log(isAlreadyFavorite);
+      console.log('isAlreadyInFavorites');
 
-      console.log('=========================');
-      console.log(isAlreadyInFavorite);
-      console.log('=========================');
-
-      if (!isAlreadyInFavorite) {
+      if (!isAlreadyFavorite) {
         state.favoritesMovies.push(dataFilm);
-        localStorage.setItem('favoritesMovies', state.favoritesMovies);
+        localStorage.setItem('favoritesMovies', JSON.stringify(state.favoritesMovies));
       }
     },
   },

@@ -300,11 +300,12 @@ ul {
   align-items: center;
   justify-content: center;
   position: absolute;
-  gap: 5px;
+  gap: 2px;
   padding: 3px 0px;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.78);
   width: 100%;
+  color: #fff;
 }
 .movies__card > img:hover {
   transition: 0.2s ease;

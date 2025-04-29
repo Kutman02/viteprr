@@ -18,17 +18,19 @@ const favoritesSlice = createSlice({
     addFavoritesMovie: (state, action) => {
       const dataFilm = action.payload;
       const isAlreadyFavorite = state.favoritesMovies.some(movie => movie.id === dataFilm.id);
-      console.log('isAlreadyInFavorites');
-      console.log(isAlreadyFavorite);
-      console.log('isAlreadyInFavorites');
 
       if (!isAlreadyFavorite) {
         state.favoritesMovies.push(dataFilm);
         localStorage.setItem('favoritesMovies', JSON.stringify(state.favoritesMovies));
       }
     },
+    removeFavoritesMovie: (state, action) => {
+      const dataFilm = action.payload;
+      state.favoritesMovies = state.favoritesMovies.filter(movie => movie.id !== dataFilm.id);
+      localStorage.setItem('favoritesMovies', JSON.stringify(state.favoritesMovies));
+    },
   },
 });
 
 export default favoritesSlice.reducer;
-export const { addFavoritesMovie } = favoritesSlice.actions;
+export const { addFavoritesMovie, removeFavoritesMovie } = favoritesSlice.actions;

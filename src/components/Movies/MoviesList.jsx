@@ -4,9 +4,18 @@ import SceletonFilm from '../Sceletons/SceletonFilm';
 import { useSelector } from 'react-redux';
 
 function MoviesList() {
-  const { films, status } = useSelector((store) => {
-    return store.movies;
-  });
+
+  const a useLocation();
+  console.log('a');
+  console.log(a);
+  console.log('a');
+  
+
+  const { films, status } = useSelector((store) => store.movies);
+  const { favoritesMovies } = useSelector((store) => store.favorites);
+  console.log('favoritesMovies');
+  console.log(favoritesMovies);
+  console.log('favoritesMovies');
 
   return (
     <div id="movies" className="movies anchor">

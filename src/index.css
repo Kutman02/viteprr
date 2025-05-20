@@ -751,3 +751,14 @@ main > video {
   font-size: 12px;
   font-weight: normal;
 }
+
+.noFavorites {
+  /*display: flex;*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+}

@@ -2,26 +2,21 @@ import MoviesCard from './MoviesCard';
 import SceletonFilm from '../Sceletons/SceletonFilm';
 
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import FavoriteMoviesList from './FavoriteMoviesList';
 
 function MoviesList() {
-
-  const a useLocation();
-  console.log('a');
-  console.log(a);
-  console.log('a');
-  
+  const path = useLocation();
 
   const { films, status } = useSelector((store) => store.movies);
   const { favoritesMovies } = useSelector((store) => store.favorites);
-  console.log('favoritesMovies');
-  console.log(favoritesMovies);
-  console.log('favoritesMovies');
 
   return (
     <div id="movies" className="movies anchor">
-      {status === 'loading'
-        ? [...new Array(12)].map((_, index) => <SceletonFilm key={index} />)
-        : films.map((value, index) => <MoviesCard key={index} {...value} />)}
+      {
+      path.pathname === '/favorites' ? (
+<FavoriteMoviesList favorites={favoritesMovies} />
+      )}
     </div>
   );
 }

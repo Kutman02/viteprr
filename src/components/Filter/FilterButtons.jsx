@@ -1,27 +1,22 @@
 import React from 'react';
-function FilterButtons() {
-  let categoryes = [
-    'Movies',
-    'Cinema',
-    'Adventure',
-    'Comedy',
-    'Fantasy',
-    'History',
-    'Cartoon',
-    'Detective',
-    'Mysticism',
-    'Drama',
-  ];
+import { useSelector } from 'react-redux';
 
-  const [active, changeActive] = React.useState('Movies');
+function FilterButtons() {
+  const { filmsCategory } = useSelector((store) => store.movies);
+
+  const [active, changeActive] = React.useState('All');
 
   return (
     <div className="filter__buttons">
-      {categoryes.map((value, index) => (
+      <button onClick={() => changeActive('All')} className={active === 'All' ? 'active' : ''}>
+        All
+      </button>
+
+      {filmsCategory.map((value, index) => (
         <button
           key={index}
-          className={value === active ? 'active' : ''}
-          onClick={() => changeActive(value)}>
+          onClick={() => changeActive(value)}
+          className={value === active ? 'active' : ''}>
           {value}
         </button>
       ))}

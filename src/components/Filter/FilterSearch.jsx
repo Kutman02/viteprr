@@ -5,7 +5,6 @@ function FilterSearch() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { filteredMovies } = useSelector((store) => store.movies);
 
   useEffect(() => {
     const handler = setTimeout(() => {

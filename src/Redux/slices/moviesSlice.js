@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   films: [],
+  filmsCategory: [],
   status: 'loading',
   errors: null,
   searchFilm: {
@@ -60,6 +61,7 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.films = action.payload;
+        state.filmsCategory = [...new Set(action.payload.flatMap((value, _) => value.category))];
         state.status = 'fulfilled';
       })
       .addCase(fetchMovies.rejected, (state, action) => {

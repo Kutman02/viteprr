@@ -8,7 +8,7 @@ import FavoriteMoviesList from './FavoriteMoviesList';
 function MoviesList() {
   const path = useLocation();
 
-  const { films, status, filteredMovies } = useSelector((store) => store.movies);
+  const { films, status, filteredMovies,filteredMoviesCategoryes } = useSelector((store) => store.movies);
   const { favoritesMovies } = useSelector((store) => store.favorites);
 
   return (
@@ -18,7 +18,7 @@ function MoviesList() {
       ) : status === 'loading' ? (
         <LoadingMovies />
       ) : (
-        <MoviesCards films={{ films, filteredMovies }} />
+        <MoviesCards films={{ films, filteredMovies, filteredMoviesCategoryes }} />
       )}
     </div>
   );

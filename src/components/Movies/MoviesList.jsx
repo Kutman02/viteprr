@@ -7,14 +7,19 @@ import FavoriteMoviesList from './FavoriteMoviesList';
 
 function MoviesList() {
   const path = useLocation();
+  let moviesToShow = [];
 
-  const { films, status, filteredMovies,filteredMoviesCategoryes } = useSelector((store) => store.movies);
+  const { films, status, filteredMovies, filteredMoviesCategoryes } = useSelector(
+    (store) => store.movies,
+  );
   const { favoritesMovies } = useSelector((store) => store.favorites);
 
   return (
     <div id="movies" className="movies anchor">
       {path.pathname === '/favorites' ? (
-        <FavoriteMoviesList favorites={favoritesMovies} />
+        <FavoriteMoviesList
+          favorites={{ favoritesMovies, filteredMovies, filteredMoviesCategoryes }}
+        />
       ) : status === 'loading' ? (
         <LoadingMovies />
       ) : (

@@ -49,10 +49,14 @@ const moviesSlice = createSlice({
       state.searchFilm.status = 'fulfilled';
     },
     filterMovies: (state, action) => {
-      const searchTerm = action.payload.toLowerCase();
-      state.filteredMovies = state.films.filter((movie) =>
-        movie.title.toLowerCase().includes(searchTerm),
-      );
+      if (action.payload === '') {
+        state.filteredMovies = [];
+      } else {
+        const searchTerm = action.payload.toLowerCase();
+        state.filteredMovies = state.films.filter((movie) =>
+          movie.title.toLowerCase().includes(searchTerm),
+        );
+      }
     },
     searchCategoryesFilms: (state, action) => {
       if (action.payload === 'All') {

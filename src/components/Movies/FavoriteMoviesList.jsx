@@ -1,25 +1,30 @@
 import MoviesCard from './MoviesCard';
 
 const FavoriteMoviesList = ({ favorites }) => {
-  console.log('favorites', favorites);
+  console.log(favorites);
+  let moviesToShow = [];
 
-   if (films.filteredMovies.length > 0) {
-
-    moviesToShow = films.filteredMovies;
-  } else if (films.filteredMoviesCategoryes.length > 0) {
-
-    moviesToShow = films.filteredMoviesCategoryes;
+  if (favorites.filteredMovies.length > 0) {
+    moviesToShow = favorites.filteredMovies.filter((searchFilms) => {
+      return favorites.favoritesMovies.some(
+        (searchTitle) => searchTitle.title === searchFilms.title,
+      );
+    });
+  } else if (favorites.filteredMoviesCategoryes.length > 0) {
+    moviesToShow = favorites.filteredMoviesCategoryes.filter((searchFilms) => {
+      return favorites.favoritesMovies.some(
+        (searchTitle) => searchTitle.title === searchFilms.title,
+      );
+    });
+  } else if (favorites.favoritesMovies.length === 0) {
+    return <p>У вас нет избранных фильмов</p>;
   } else {
-    moviesToShow = films.films;
-
-  }
-  if (favorites.length === 0) {
-    return <p className="noFavorites">У вас нет избранных фильмов</p>;
+    moviesToShow = favorites.favoritesMovies;
   }
 
-  return favorites.favoritesMovies.map((value, index) => <MoviesCard key={index} {...value} />);
+
+  return moviesToShow.map((value, index) => <MoviesCard key={index} {...value} />);
 };
 export default FavoriteMoviesList;
-
 
 //favoritesMovies, filteredMovies, filteredMoviesCategoryes

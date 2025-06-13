@@ -15,6 +15,7 @@ const initialState = {
   filteredMoviesCategoryes: [],
 };
 
+//export const fetchMovies = createAsyncThunk('movie/fetchmovies', () => {
 export const fetchMovies = createAsyncThunk('movie/fetchmovies', () => {
   return axios
     .get('https://67c56962c4649b9551b69643.mockapi.io/ReactCinema')
